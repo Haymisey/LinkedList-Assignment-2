@@ -115,3 +115,67 @@ public class LinkedList {
 
 }
 
+
+public class Stack {
+    class Node {
+        int data;
+        Node link;
+
+        public Node(int data) {
+            this.data = data;
+            this.link = null;
+        }
+    }
+
+
+    private Node top;
+
+    public Stack() {
+        top = null;
+    }
+
+    // Push operation: Insert a new element into the stack
+    public void push(int data) {
+        Node temp = new Node(data);
+        temp.link = top;
+        top = temp;
+    }
+
+    // Pop operation: Remove and return the top element from the stack
+    public int pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        int poppedValue = top.data;
+        top = top.link;
+        return poppedValue;
+    }
+
+    // Peek operation: Return the top element without removing it
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        return top.data;
+    }
+
+    // Check if the stack is empty
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    // Display all elements in the stack
+    public void display() {
+        Node temp = top;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.link;
+        }
+        System.out.println();
+    }
+
+}
+
+
+
+
